@@ -5,7 +5,7 @@ mxd = arcpy.mapping.MapDocument("CURRENT")
 # df is the dataframe, Layers is used to run through all the layers within the mxd. Leave Layers as is
 df = arcpy.mapping.ListDataFrames(mxd, "Layers")[0]
 # lyr sets the layer, needs to be spelt exactly as the layer sits in ArcMap
-lyr = arcpy.mapping.ListLayers(mxd, "BOCO.PARCELS.PARCELS_OWNER", df)[0]
+lyr = arcpy.mapping.ListLayers(mxd, "PARCELS.PARCELS_OWNER", df)[0]
 arcpy.env.overwriteOutput = True
 
 # sets the parameters, this must be setup in the toolbox script
@@ -57,8 +57,8 @@ sym1 = arcpy.mapping.ListLayers(mxd, "Subject", df)[0]
 sym2 = arcpy.mapping.ListLayers(mxd, "Comps", df)[0]
 
 # Set layer that output symbology will be based on
-symbologyLayer1 = r'G:\OM\ArcGIS\Tools_Nifty\Subject.lyr'
-symbologyLayer2 = r'G:\OM\ArcGIS\Tools_Nifty\Comps.lyr'
+symbologyLayer1 = r'G:\ArcGIS\Subject.lyr'
+symbologyLayer2 = r'G:\OM\Comps.lyr'
 # Apply the symbology from the symbology layer to the input layer
 arcpy.ApplySymbologyFromLayer_management(sym1, symbologyLayer1)
 arcpy.ApplySymbologyFromLayer_management(sym2, symbologyLayer2)
