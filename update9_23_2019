@@ -5,7 +5,7 @@ mxd = arcpy.mapping.MapDocument("CURRENT")
 # df is the dataframe, Layers is used to run through all the layers within the mxd. Leave Layers as is
 df = arcpy.mapping.ListDataFrames(mxd, "Layers")[0]
 # lyr sets the layer, needs to be spelt exactly as the layer sits in ArcMap
-lyr = arcpy.mapping.ListLayers(mxd, "BOCO.PARCELS.PARCELS_OWNER", df)[0]
+lyr = arcpy.mapping.ListLayers(mxd, "PARCELS.PARCELS_OWNER", df)[0]
 arcpy.env.overwriteOutput = True
 
 # sets the parameters, this must be setup in the toolbox script
@@ -42,8 +42,8 @@ arcpy.SelectLayerByAttribute_management(lyr, "CLEAR_SELECTION")
 
 arcpy.SelectLayerByAttribute_management(lyr, "NEW_SELECTION", where_clause1)
 arcpy.CopyFeatures_management(lyr, 'Comps')
-newlayer = arcpy.mapping.Layer(r'C:\ArcMap\Res_Boulder.gdb\Subject')
-newlayer1 = arcpy.mapping.Layer(r'C:\ArcMap\Res_Boulder.gdb\Comps')
+newlayer = arcpy.mapping.Layer(r'C:\ArcMap\CB.gdb\Subject')
+newlayer1 = arcpy.mapping.Layer(r'C:\ArcMap\CB.gdb\Comps')
 arcpy.mapping.AddLayer(df, newlayer, "AUTO_ARRANGE")
 arcpy.mapping.AddLayer(df, newlayer1, "AUTO_ARRANGE")
 arcpy.SelectLayerByAttribute_management(lyr, "CLEAR_SELECTION")
@@ -94,7 +94,7 @@ for lyr in arcpy.mapping.ListLayers(mxd, "Subject"):
 for lyr in arcpy.mapping.ListLayers(mxd, df):
     print("Converting labels to annotation for: " + mp.name)
     arcpy.cartography.ConvertLabelsToAnnotation(
-            lyr, '', 'C:\ArcMap\Res_Boulder.gdb', 'Anno_' + mp.name, 'DISPLAY',
+            lyr, '', 'C:\ArcMap\CB.gdb', 'Anno_' + mp.name, 'DISPLAY',
             'GENERATE_UNPLACED', 'NO_REQUIRE_ID', 'STANDARD', '', '',
             'AnnoLayers_' + mp.name, 'ALL_LAYERS', '', 'SINGLE_FEATURE_CLASS',
             'MERGE_LABEL_CLASS')
