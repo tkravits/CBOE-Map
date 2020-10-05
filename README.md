@@ -4,4 +4,6 @@ This ArcPy code is designed to automate the map creation process for the County 
 
 The user will set up ahead of time the subject property and the comparable sales that are to be mapped. The process creates two layers, applies symbology that was pre-set up ahead of time, zooms to the selected layers, and changes the title based on the subject input.
 
-This completes the map making process with the exception of creating annotation (condos cause the labeling to be screwy) and cleaning up the scale bar. The code is found <a href="https://github.com/tkravits/CBOE-Map">here</a>
+This completes the map making process with the exception of creating annotation (condos cause the labeling to be screwy) and cleaning up the scale bar. 
+
+The code is found <a href="https://github.com/tkravits/CBOE-Map">here</a>
